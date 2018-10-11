@@ -1,0 +1,63 @@
+
+
+{% extends "::layout/layout.html.twig" %}        
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h2 style='text-align: center'> Liste des équipes ligue 1</h2>
+            <div class="span2">
+
+                <img src="{{ absolute_url(asset('img/lique_senegal.jpeg')) }}">   
+
+            </div>
+                <div class="span1">
+  
+
+            </div>
+                
+            <div class="span4">
+                
+                    <table class="table table-striped table-hover center-block">
+                        <thead>
+                            <tr>
+                                <th>Nom Equipe</th>
+                                <th>Date De Creation</th>
+                                <th>Adresse</th>
+                          
+                                {#<th><span class="icon-eye-open"></span></th>#}
+                              
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for equipe in equipes %}
+                                <tr> 
+                                    <td> {{ equipe.nomEquipe }} </td>
+                                    <td> {{ equipe.dateCreationEquipe|date('d/m/Y') }} </td>
+                                    <td> {{ equipe.adresseEquipe }} </td>
+                                </tr>
+                            {%endfor%}
+                  
+                        <P class="icon-star">  <a style="text-decoration: none; color: black;" href="{{ path('sunu_championnat_prog_match') }}">Programmer un match</a></P>
+                    </tbody>
+                </table>
+                    <P class="icon-star">  <a style="text-decoration: none; color: black;" href="{{ path('sunu_championnat_add_equipe') }}">Ajouter une équipe</a></P>
+            </div>
+            
+            <div class="span2">
+
+            </div>
+
+            <div class="span2">
+
+                {{ include('includeType/espace_admin.html.twig') }}
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+
+

@@ -1,0 +1,29 @@
+{% extends "::layout/layout.html.twig" %}        
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h2 style='text-align: center'> Prgrammer une rencontre</h2>
+            
+            <div class="span3">
+
+                <img src="{{ absolute_url(asset('img/lique_senegal.jpeg')) }}">   
+
+            </div>
+
+            
+            <div class="span2">
+
+            </div>
+
+            <div class="span2">
+
+                {{ include('includeType/espace_admin.html.twig') }}
+
+            </div>
+
+        </div>
+       
+    </div>
+{% endblock %}
+

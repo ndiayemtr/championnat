@@ -1,0 +1,15 @@
+utilisateurs:
+    resource: "@UtilisateursBundle/Resources/config/routing.yml"
+    prefix:   /
+
+sunu_championnat:
+    resource: "@sunuChampionnatBundle/Resources/config/routing.yml"
+    prefix:   /
+
+championnat:
+    resource: "@ChampionnatBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

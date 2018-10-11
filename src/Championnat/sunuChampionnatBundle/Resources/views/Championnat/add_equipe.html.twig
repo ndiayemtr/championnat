@@ -1,0 +1,32 @@
+{% extends "::layout/layout.html.twig" %}        
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h2 style='text-align: center'> Ajouter une équipe</h2>
+            {{ form_start(form, {'attr': {'class': 'form-vertical'}}) }}
+            <div class="span3">
+
+                <img src="{{ absolute_url(asset('img/lique_senegal.jpeg')) }}">   
+
+            </div>
+            <div class="span4">
+                {{ include('includeType/add_equipe.html.twig') }}
+            </div>
+            
+            <div class="span2">
+
+            </div>
+
+            <div class="span2">
+
+                {{ include('includeType/espace_admin.html.twig') }}
+
+            </div>
+
+        </div>
+        {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+

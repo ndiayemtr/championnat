@@ -1,0 +1,116 @@
+.enGras{
+    font-weight: bold
+}
+
+.centerBouton{
+    text-align: center
+}
+
+#banniere{
+    position: fixed;
+       
+}
+
+
+body,h1,h4,h3{
+    
+   font-family: "Times New Roman", Times, serif;
+   
+}
+
+.ooo{
+    font-size: 25px;
+}
+
+.text-gras{
+    font-style: oblique;
+    font-weight: bold
+}
+
+.nombre-carton{
+    font-size: 18px
+}
+
+#banniere{
+    padding-top: 2px;
+     border-radius: 5px 5px 5px 5px;   
+}
+
+body{
+    //background: url("../img/(6).jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.social img{
+    width: 30px;
+    height: 30px;
+    margin: 0px;
+    background-color: #333333;
+    border-radius:50px;
+}
+
+
+#odcav{
+    text-align: justify;
+    font-size: 20px;
+    background-color: #ffffff;
+}
+
+#odcav h3{
+   
+    //font-size: 20px;
+    text-align: center;
+    text-decoration: underline; 
+}
+
+footer{
+    background-color: #333333;
+    color: #dff0d8;
+        
+}
+
+.text-logo{
+    font-size: 15px;
+    font-weight: bold; 
+}
+
+.scoor{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.marque{
+    font-weight: bold;
+}
+
+.lien_jaouter{
+   
+}
+
+.barreDefilement{
+    overflow: auto;
+    height: 300px;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.nomEquipe{
+    color: #2ca02c;
+    font-size: 18px;
+}
+
+.souligneTexte{
+    text-decoration: underline;
+}
+
+.taille{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+

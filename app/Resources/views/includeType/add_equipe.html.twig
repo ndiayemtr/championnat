@@ -1,0 +1,42 @@
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title"></h3>
+    </div>
+
+
+    <div class="box-body">
+
+        <div class="form-group">
+            {{ form_label(form.nomEquipe, "Nom Equipe ") }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.nomEquipe) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.nomEquipe, {'attr': {'class': 'form-control', 'placeholder':'Nom Equipe'}}) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.dateCreationEquipe, "Date de Creation") }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.dateCreationEquipe) }}
+            {# Génération de l'input. #}
+             {{ form_widget(form.dateCreationEquipe) }}
+           
+        </div>
+            
+             <div class="form-group">
+            {{ form_label(form.adresseEquipe, "Adresse") }}
+            {# Affichage des erreurs pour ce champ précis. #}
+            {{ form_errors(form.adresseEquipe) }}
+            {# Génération de l'input. #}
+            {{ form_widget(form.adresseEquipe, {'attr': {'class': 'form-control', 'placeholder':'Adresse'}}) }}
+           
+        </div>
+            
+            
+          <div class="box-footer">
+        {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+    </div>
+
+    </div>
+
+
+</div><!-- box box-primary-->

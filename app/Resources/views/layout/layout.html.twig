@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block titre %}Ligue 1 Sénégalaise!{% endblock %}</title>
+        <meta name="keywords" content="{% block motsCles %}{% endblock %}" />
+        <meta name="description" content="{% block description %}{% endblock %}" />
+       <link rel="stylesheet" href="{{ absolute_url(asset('css/bootstrap.css')) }}" />
+        <link rel="stylesheet" href="{{ absolute_url(asset('css/bootstrap-responsive.css')) }}" />
+        <link rel="stylesheet" href="{{ absolute_url(asset('css/style.css')) }}" />
+        <link rel="stylesheet" href="{{ absolute_url(asset('css/mon_style.css')) }}" />
+        <link rel="stylesheet" href="{{ absolute_url(asset('css/font-awesome.css')) }}" />
+        
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ absolute_url(asset('favicon.ico')) }}" />
+</head>
+<body>
+ 
+    <div class="navbar navbar-inverse navbar-fixed-top">
+         
+        <div class="navbar-inner">
+            <div class="container">
+               
+                <a style="text-decoration: none;" class="brand" href="">Ligue 1 Sénégalaise</a>
+                <div class="pull-right">
+                   
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <p><a href="{{path('fos_user_security_logout') }}" class="btn btn-primary"> Se déconnecter</a></p>
+                    {% else %}
+                        <p><a href="{{path('fos_user_security_login') }}" class="btn btn-primary"> Se connecter</a></p>
+                    {% endif %}
+                    
+                   
+                   
+                    {# {{ render(controller("EcommerceEcommerceBundle:Produits:recherche")) }} #}
+
+                </div>
+                    
+            </div>
+        </div>
+                    
+    </div>
+
+{% block body %}
+
+{% endblock %}<br>
+
+<hr />
+
+    <div class="container">
+        <div class="row">
+            <div class="span4 offset1">
+                <h4>Informations</h4>
+                <ul class="nav nav-stacked">                                                 
+
+                </ul>
+            </div> 
+
+            <div class="span4">
+                <h4>YUX DAKAR</h4>
+                <p><i class="icon-map-marker"></i>&nbsp;Dakar Ponit E</p>
+            </div>
+
+            <div class="span2">
+                <h4>Nous contacter</h4>
+                <p><i class="icon-phone"></i>&nbsp;Tel: XXXXX </p>
+                <p><i class="icon-print"></i>&nbsp;Fax: XXXXX</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span4">
+                <p>&copy; Copyright {{ "now"|date('y') }} - Matar NDIAYE</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="{{ asset('js/jquery-1.10.0.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.js') }}"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

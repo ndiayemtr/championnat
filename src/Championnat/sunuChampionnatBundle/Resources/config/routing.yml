@@ -1,0 +1,31 @@
+sunu_championnat_index:
+    path:     /
+    defaults: { _controller: sunuChampionnatBundle:Championnat:index }
+    
+sunu_championnat_add_equipe:
+    path:     /add_equipe
+    defaults: { _controller: sunuChampionnatBundle:Championnat:addEquipe }
+    
+sunu_championnat_prog_match:
+    path:     /prog_match
+    defaults: { _controller: sunuChampionnatBundle:Championnat:programmerMatch }
+    
+sunu_championnat_liste_des_equipes:
+    path:     /liste_des_equipes
+    defaults: { _controller: sunuChampionnatBundle:Championnat:listeDesEquipes }
+    
+sunu_championnat_une_rencontre:
+    path:     /une_rencontre/{id}
+    defaults: { _controller: sunuChampionnatBundle:Championnat:uneRencontre }
+    
+sunu_championnat_classement:
+    path:     /classement
+    defaults: { _controller: sunuChampionnatBundle:Championnat:classement }
+    
+sunu_championnat_add_but:
+    path:     /add_but/{id}
+    defaults: { _controller: sunuChampionnatBundle:Championnat:addBut }
+    
+sunu_championnat_add_points:
+    path:     /add_points/{id}
+    defaults: { _controller: sunuChampionnatBundle:Championnat:addPoints }

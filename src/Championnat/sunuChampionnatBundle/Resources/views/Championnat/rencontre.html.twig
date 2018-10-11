@@ -1,0 +1,140 @@
+{% extends "::layout/layout.html.twig" %}        
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h2 style='text-align: center'> Rencontre</h2>
+
+            <div class="span3">
+
+                <img src="{{ absolute_url(asset('img/lique_senegal.jpeg')) }}">   
+
+            </div>
+            <div class="span6">
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <h4> Rencontre
+
+                            <span class="nomEquipe">{{ rencontre[0].equipes[0].nomEquipe }}</span>
+
+                            VS 
+
+                            <span class="nomEquipe"> {{ rencontre[0].equipes[1].nomEquipe }}</span>
+
+                            | Lique1  | 
+
+                            <span class="nomEquipe taille">{{ rencontre[0].dateMatch|date('d/m/Y')}}</span>
+
+                        </h4>
+                    </div>
+
+                    <div class="panel-body">
+                           <p id="demos"> 
+              
+                
+                Temps :<span class="timer"
+              data-has-started="<?php echo $has_started ? 'true' : 'false'; ?>"
+              data-elapsed-time="<?php echo $elapsed_time; ?>">
+           
+        </span> </p>
+
+
+                        <div class="row">
+                            <div class="col-xs-6 col-md-4 text-logo">
+                                <span class="nomEquipe"> {{ rencontre[0].equipes[0].nomEquipe }}</span>
+                                <br><span>0</span><img src="{{ absolute_url(asset('img/jaune.PNG')) }}"><span>0</span>
+                                <img src="{{ absolute_url(asset('img/rouge.PNG')) }}">
+                            </div>
+                            <div class="col-xs-6 col-md-4 scoor">&nbsp;&nbsp;&nbsp;&nbsp;<strong><span class="equipe_a_but">{{ rencontre[0].butDomicile }}</span></strong> VS <strong>
+                                    <span class="equipe_b_but">{{ rencontre[0].butExterieur }}</span></strong>
+                            </div>
+                            <div class="col-xs-6 col-md-4 text-logo pull-right">
+                                <span class="nomEquipe">{{  rencontre[0].equipes[1].nomEquipe }}</span>
+                                <br><span>0</span><img src="{{ absolute_url(asset('img/jaune.PNG')) }}"> <span>0</span>
+                                <img src="{{ absolute_url(asset('img/rouge.PNG')) }}">
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <a style="text-decoration: none;" href="#action_but" class="btn btn-primary" 
+                           data-toggle="modal">
+                            Action But
+                        </a>
+                        <a style="text-decoration: none;" href="{{ path('sunu_championnat_add_points', {'id':rencontre[0].id} ) }}" class="btn btn-primary pull-right">
+                            Match terminé
+                        </a>
+                    </div>
+                </div>
+            </div>                       
+                         <div id="action_but" class="modal" data-backdrop="static" tabindex="-1">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Choisit l'equipe qui a marqué un BUT</h4>
+                    </div>
+
+                    <div class="modal-body">
+                    <form class="modal-sm" action="{{ path('sunu_championnat_add_but', {'id':rencontre[0].id} ) }}" method="POST">
+                        <div class="radio">
+                            <label><input type="radio" name="but" value="{{  rencontre[0].equipes[0].nomEquipe }}" checked>{{  rencontre[0].equipes[0].nomEquipe }}</label>
+                        </div>
+                        <div class="radio">
+                            <label><input type="radio" name="but" value="{{  rencontre[0].equipes[1].nomEquipe }}">{{  rencontre[0].equipes[1].nomEquipe }}</label>
+                        </div>   
+                        <div class="modal-footer">
+                            <a href="#" class="btn" data-dismiss="modal">Close</a>
+                            <button class="btn btn-primary">Valider</button>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+
+        </div>
+
+
+            <div class="span2">
+
+                {{ include('includeType/espace_admin.html.twig') }}
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+  <script type="text/javascript">
+      <?php
+                // Le match a commencé : true sinon false
+                $has_started = true;
+
+                // Temps écoulé depuis le début du match en secondes
+                $elapsed_time = 3600;
+
+                $hours = floor($elapsed_time / 3600);
+                $minutes = floor(($elapsed_time % 3600) / 60);
+                $seconds = floor(($elapsed_time % 3600) % 60);
+                  ?>
+            $(function(){
+                if($('.timer').data('has-started'))
+                {
+                    var elapsed_time = $('.timer').data('elapsed-time');
+                    var hours, minutes, seconds;
+                     
+                    window.setInterval(function(){
+                        elapsed_time++;
+                         
+                        hours = Math.floor(elapsed_time / 3600);
+                        minutes = Math.floor((elapsed_time % 3600) / 60);
+                        seconds = Math.floor((elapsed_time % 3600) % 60); 
+                         
+                        $('.timer').html(minutes+':'+seconds);
+                    }, 1000);
+                }
+            });
+        </script>
+
+{% endblock %}
